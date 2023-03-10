@@ -183,7 +183,6 @@ class NoteActions:
             extract_mentions: bool = True,
             extract_hashtags: bool = True,
             extract_emojis: bool = True,
-            file_ids: Optional[List[str]] = None,
             poll: Optional[Poll] = None,
             note_id: Optional[str] = None,
     ) -> Note:
@@ -208,8 +207,6 @@ class NoteActions:
             Whether to expand the hashtag
         extract_emojis: bool, default=True
             Whether to expand the emojis
-        file_ids: Optional[List[str]], default=None
-            The ID list of files to be attached
         poll: Optional[Poll], default=None
             Questionnaire to be created
         note_id: Optional[str], default=None
@@ -221,7 +218,7 @@ class NoteActions:
         return await self.send(content=content, visibility=visibility, visible_user_ids=visible_user_ids, cw=cw,
                                local_only=local_only, extract_mentions=extract_mentions,
                                extract_hashtags=extract_hashtags,
-                               extract_emojis=extract_emojis, renote_id=note_id, file_ids=file_ids, poll=poll)
+                               extract_emojis=extract_emojis, renote_id=note_id, poll=poll)
 
     async def get_note(self, note_id: Optional[str] = None) -> Note:
         """
